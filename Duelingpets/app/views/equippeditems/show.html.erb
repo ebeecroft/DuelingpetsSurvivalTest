@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Current durability:</strong>
+  <%= @equippeditem.current_durability %>
+</p>
+
+<p>
+  <strong>Initial durability:</strong>
+  <%= @equippeditem.initial_durability %>
+</p>
+
+<p>
+  <strong>Equip:</strong>
+  <%= @equippeditem.equip_id %>
+</p>
+
+<p>
+  <strong>Item:</strong>
+  <%= @equippeditem.item_id %>
+</p>
+
+<%= link_to 'Edit', edit_equippeditem_path(@equippeditem) %> |
+<%= link_to 'Back', equippeditems_path %>

@@ -1,0 +1,39 @@
+<%= form_with(model: [@subfolder, @art], local: true) do |form| %>
+  <% if @art.errors.any? %>
+     <div class="alignboxes">
+        <div id="errorexplan">
+           <h2 id="errorheader"><%= pluralize(@art.errors.count, "error") %> prohibited this art from being saved:</h2>
+           <ul>
+              <% @art.errors.full_messages.each do |message| %>
+                 <li class="explantext"><%= message %></li>
+              <% end %>
+           </ul>
+        </div>
+     </div>
+  <% end %>
+  <div class="pageformat">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+  <br>
+  <div class="pageformat">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+  <br>
+  <div class="pageformat">
+    <%= form.label :image %>
+    <%= form.file_field :image %>
+  </div>
+  <br>
+  <div class="pageformat">
+    <%= form.label :bookgroup_id, "Select Group" %>
+    <%= form.collection_select(:bookgroup_id, @group, :id, :name) %>
+  </div>
+  <br>
+  <div class="pageformat">
+    <%= form.submit class: "button submitbutton" %>
+  </div>
+  <br>
+  <p class="formlinks"><%= link_to 'Back', mainfolder_subfolder_path(@subfolder.mainfolder, @subfolder) %></p>
+<% end %>

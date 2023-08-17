@@ -1,0 +1,19 @@
+<% provide(:title, "Duelingpets: Elementchart #{@elementchart.name}") %>
+<% provide(:description, "Check out #{@elementchart.user}'s amazing elementcharts.") %>
+<% provide(:keywords, "virtualpet, digitalpets, elementchart") %>
+<% provide(:robots, "index, follow") %>
+<% provide(:h1, @elementchart.name) %>
+<% if notice.nil? %>
+   <p id="notice"><%= notice %></p>
+<% end %>
+<% @elementmaps.each_with_index do |elementmap, index| %>
+   <% if elementmap.damageoffset.name == "Power" %>
+      <p>Power: <%= elementmap.element.name %></p>
+   <% elsif elementmap.damageoffset.name == "Strength" %>
+      <p>Strength: <%= elementmap.element.name %></p>
+   <% elsif elementmap.damageoffset.name == "Neutral" %>
+      <p>Neutral: <%= elementmap.element.name %></p>
+   <% elsif elementmap.damageoffset.name == "Weakness" %>
+      <p>Weakness: <%= elementmap.element.name %></p>
+   <% end %>
+<% end %>

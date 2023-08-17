@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @characterstat.value %>
+</p>
+
+<p>
+  <strong>Character:</strong>
+  <%= @characterstat.character_id %>
+</p>
+
+<p>
+  <strong>Stat:</strong>
+  <%= @characterstat.stat_id %>
+</p>
+
+<%= link_to 'Edit', edit_characterstat_path(@characterstat) %> |
+<%= link_to 'Back', characterstats_path %>

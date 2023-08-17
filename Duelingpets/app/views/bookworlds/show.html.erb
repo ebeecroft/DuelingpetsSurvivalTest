@@ -1,0 +1,22 @@
+<% provide(:title, "Duelingpets: Bookworld #{@bookworld.name}") %>
+<% provide(:description, "Check out #{@bookworld.user}'s amazing book series.") %>
+<% provide(:keywords, "virtualpet, digitalpets, book, series") %>
+<% provide(:robots, "index, follow") %>
+<% provide(:h1, @bookworld.name) %>
+<% if notice.nil? %>
+   <p id="notice"><%= notice %></p>
+<% end %>
+<% @books.each_with_index do |book, index| %>
+   <div class="bookworldcontainer">
+      <p><%= link_to book.title, bookworld_book_path(book.bookworld, book) %></p>
+      <p><%= displayStory(book, "show").story %>
+      <% if(displayStory(book, "show")) %>
+         <%# if displayStory(book, "show").story.previewable? %>
+         <p><%= image_tag(url_for(displayStory(book, "show").story.preview(resize_to_limit: [100, 100])), class: "fitsmallimages") %></p>
+         <%# else %>
+         <%# end %>
+      <% else %>
+         <p>This Book has no Chapters to display!</p>
+      <% end %>
+   </div>
+<% end %>

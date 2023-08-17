@@ -1,0 +1,32 @@
+<%= form_with(model: tagable, local: true) do |form| %>
+  <% if tagable.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tagable.errors.count, "error") %> prohibited this tagable from being saved:</h2>
+
+      <ul>
+      <% tagable.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :table_id %>
+    <%= form.number_field :table_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :table_type %>
+    <%= form.text_field :table_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tag_id %>
+    <%= form.number_field :tag_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

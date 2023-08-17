@@ -1,0 +1,25 @@
+<% provide(:title, "Duelingpets: Creature #{@creature.name}") %>
+<% provide(:description, "Check out #{@creature.user}'s amazing creatures.") %>
+<% provide(:keywords, "virtualpet, digitalpets, creature") %>
+<% provide(:robots, "index, follow") %>
+<% provide(:h1, @creature.name) %>
+<p id="notice"><%= notice %></p>
+<div class="fitlargeimages">
+   <p><%= image_tag(url_for(@creature.image), class: "fitlargeimages") %></p>
+</div>
+<% @traitmaps.each do |traitmap| %>
+   <br>
+   <p><%= traitmap.traittype.name %> <%= traitmap.amount %></p>
+<% end %>
+
+<%= form_for Traitmap.new do |form| %>
+   <br>
+   <div>
+      <p><%= form.label :traittype_id, "Select your Trait!" %>
+      <p><%= form.collection_select(:traittype_id, @traittypes, :id, :name) %> <%= form.number_field :amount %></p>
+   </div>
+   <br>
+   <p><%= form.submit %></p>
+   <%= form.hidden_field :entity_id, value: @creature.id %>
+   <%= form.hidden_field :entitytype_id, value: 1 %>
+<% end %>

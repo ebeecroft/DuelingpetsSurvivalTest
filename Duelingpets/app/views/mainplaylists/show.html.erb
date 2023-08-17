@@ -1,0 +1,16 @@
+<% provide(:title, "Duelingpets: Mainplaylist #{@mainplaylist.title}") %>
+<% provide(:description, "Check out #{@mainplaylist.user}'s amazing movies.") %>
+<% provide(:keywords, "virtualpet, digitalpets, movies") %>
+<% provide(:robots, "index, follow") %>
+<% provide(:h1, @mainplaylist.title) %>
+<p id="notice"><%= notice %></p>
+<% @subplaylists.each_with_index do |subplaylist, index| %>
+   <div class="videocontainer">
+      <p><%= link_to subplaylist.title, mainplaylist_subplaylist_path(subplaylist.mainplaylist, subplaylist) %></p>
+      <% if(displayVideo(subplaylist, "subplaylist")) %>
+         <p><%= video_tag(url_for(displayVideo(subplaylist, "subplaylist").clip), poster: "#{url_for(displayVideo(subplaylist, "subplaylist").thumbnail)}", class: "fitvideo", :controls => true) %></p>
+      <% else %>
+         <p>This Subplaylist has no Movies to display!</p>
+      <% end %>
+   </div>
+<% end %>

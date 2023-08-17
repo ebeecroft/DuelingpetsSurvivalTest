@@ -1,0 +1,32 @@
+<%= form_with(model: animalcurrency, local: true) do |form| %>
+  <% if animalcurrency.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(animalcurrency.errors.count, "error") %> prohibited this animalcurrency from being saved:</h2>
+
+      <ul>
+      <% animalcurrency.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :animaltype_id %>
+    <%= form.number_field :animaltype_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :currencylevel_id %>
+    <%= form.number_field :currencylevel_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :currency_id %>
+    <%= form.number_field :currency_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

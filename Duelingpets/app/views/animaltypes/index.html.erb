@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Animaltypes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @animaltypes.each do |animaltype| %>
+      <tr>
+        <td><%= animaltype.name %></td>
+        <td><%= link_to 'Show', animaltype %></td>
+        <td><%= link_to 'Edit', edit_animaltype_path(animaltype) %></td>
+        <td><%= link_to 'Destroy', animaltype, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Animaltype', new_animaltype_path %>

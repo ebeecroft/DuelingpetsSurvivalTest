@@ -1,0 +1,7 @@
+<% provide(:title, "Duelingpets: Sound #{@sound.title}") %>
+<% provide(:description, "Check out #{@sound.user}'s amazing sounds.") %>
+<% provide(:keywords, "virtualpet, digitalpets, sounds") %>
+<% provide(:robots, "index, follow") %>
+<% provide(:h1, @sound.title) %>
+<p id="notice"><%= notice %></p>
+<p class="fullaudio"><%= audio_tag(url_for(@sound.song), class: "fullaudio", :controls => true) %></p>

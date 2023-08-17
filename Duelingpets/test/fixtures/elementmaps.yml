@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  elementchart_id: 1
+  element_id: 1
+  damageoffset_id: 1
+
+two:
+  elementchart_id: 1
+  element_id: 1
+  damageoffset_id: 1

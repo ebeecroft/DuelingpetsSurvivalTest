@@ -1,0 +1,18 @@
+<% provide(:title, "Duelingpets: Book #{@book.title}") %>
+<% provide(:description, "Check out #{@book.user.vname} amazing stories and novels.") %>
+<% provide(:keywords, "virtualpet, digitalpets, stories, novels") %>
+<% provide(:robots, "index, follow") %>
+<% provide(:h1, @book.title) %>
+<% if notice.nil? %>
+   <p id="notice"><%= notice %></p>
+<% end %>
+<% @chapters.each_with_index do |chapter, index| %>
+   <div class="bookworldcontainer">
+      <p><%= link_to chapter.title, book_chapter_path(chapter.book, chapter) %></p>
+      <% if chapter.story.representable? %>
+         <embed type="application/pdf" src="<%= image_path( send_pdf_attachment_path chapter.story )%>">
+         <p><%#= image_tag(chapter.story.representation(resize_to_limit: [100, 100])) %></p>
+         <p><%#= image_tag(url_for(chapter.story).preview(resize_to_limit: [100, 100])) %></p>
+      <% end %>
+   </div>
+<% end %>

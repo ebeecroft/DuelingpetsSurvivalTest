@@ -1,0 +1,23 @@
+<% provide(:title, "Duelingpets: Difficulties") %>
+<% provide(:description, "Difficulty settings that can be set for specific users.") %>
+<% provide(:keywords, "virtualpet, digitalpets, difficulty") %>
+<% provide(:robots, "noindex, nofollow") %>
+<% provide(:h1, "Difficulty List") %>
+<div class="formlinks"><%= paginate @difficulties %></div>
+<br>
+<% @difficulties.each do |difficulty| %>
+   <div class="pageformat"><div class="container">Difficulty: <%= difficulty.name %></div> <div class="container"><%= button_to 'Edit', edit_difficulty_path(difficulty), method: :get, class: "button editbutton" %></div> <div class="container"><%= button_to 'Destroy', [difficulty], method: :delete, class: "button destroybutton", data: { confirm: 'Are you sure?' } %></div></div>
+   <div class="pageformat">
+      <p>Point debt: <%= difficulty.pointdebt %></p>
+      <p>Point loan: <%= difficulty.pointloan %></p>
+      <p>Emerald debt: <%= difficulty.emeralddebt %></p>
+      <p>Emerald loan: <%= difficulty.emeraldloan %></p>
+      <p>Created on: <%= distance_of_time_in_words_to_now difficulty.created_on %> ago on (<%= difficulty.created_on.strftime("%B-%d-%Y") %>)</p>
+   </div>
+   <br>
+<% end %>
+<div class="pageformat">
+   <p><%= button_to "New Difficulty", new_difficulty_path, method: :get, class: "button submitbutton" %></p>
+   <br>
+   <p class="formlinks"><%= link_to 'Back', root_path %></p>
+</div>

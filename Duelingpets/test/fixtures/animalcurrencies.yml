@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  animaltype_id: 1
+  currencylevel_id: 1
+  currency_id: 1
+
+two:
+  animaltype_id: 1
+  currencylevel_id: 1
+  currency_id: 1

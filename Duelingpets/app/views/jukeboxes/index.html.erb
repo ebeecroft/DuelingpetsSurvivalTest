@@ -1,0 +1,34 @@
+<% if optional %>
+   <% provide(:title, "Duelingpets: #{@user.vname}'s Jukeboxes") %>
+   <% provide(:description, "Come and check out the newest jukeboxes from the composer #{@user.vname}.") %>
+   <% provide(:keywords, "virtualpet, digitalpets, jukeboxes, composer") %>
+   <% provide(:robots, "index, follow") %>
+   <% provide(:h1, @user.vname +  "'s jukeboxes") %>
+<% else %>
+   <% provide(:title, "Duelingpets: Jukebox") %>
+   <% provide(:description, "Come check out the latest newest jukeboxes from our talented composers.") %>
+   <% provide(:keywords, "virtualpet, digitalpets, jukeboxes, composer") %>
+   <% provide(:robots, "index, follow") %>
+   <% provide(:h1, "Jukebox List") %>
+<% end %>
+<% if(@jukeboxes.count >= 10) %>
+   <div class="formlinks"><%= paginate @jukeboxes %></div>
+   <br>
+<% end %>
+<% @jukeboxes.each do |jukebox| %>
+   <div class="imagecontainer">
+      <p><%= link_to jukebox.name, user_jukebox_path(jukebox.user, jukebox) %></p>
+      <% if(displayMusic(jukebox, "index")) %>
+         <p><%= audio_tag(url_for(displayMusic(jukebox, "index").song), class: "fitaudio", :controls => true) %></p>
+      <% else %>
+         <p>This Jukebox has no Sounds to hear!</p>
+      <% end %>
+   </div>
+<% end %>
+<% if optional %>
+   <p class="formlinks"><%= link_to 'Back', user_path(@user) %></p>
+<% else %>
+   <p class="formlinks"><%= link_to 'Back', root_path %></p>
+<% end %>
+
+

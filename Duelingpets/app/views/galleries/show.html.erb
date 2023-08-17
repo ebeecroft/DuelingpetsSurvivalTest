@@ -1,0 +1,18 @@
+<% provide(:title, "Duelingpets: Gallery #{@gallery.name}") %>
+<% provide(:description, "Check out #{@gallery.user}'s amazing gallery.") %>
+<% provide(:keywords, "virtualpet, digitalpets, gallery") %>
+<% provide(:robots, "index, follow") %>
+<% provide(:h1, @gallery.name) %>
+<% if notice.nil? %>
+   <p id="notice"><%= notice %></p>
+<% end %>
+<% @mainfolders.each_with_index do |mainfolder, index| %>
+   <div class="largeimagecontainer">
+      <p><%= link_to mainfolder.title, gallery_mainfolder_path(mainfolder.gallery, mainfolder) %></p>
+      <% if(displayImage(mainfolder, "show")) %>
+         <p><%= image_tag(url_for(displayImage(mainfolder, "show").image), class: "fitlargeimages") %></p>
+      <% else %>
+         <p>This Mainfolder has no Arts to display!</p>
+      <% end %>
+   </div>
+<% end %>

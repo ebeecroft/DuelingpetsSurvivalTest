@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Exchangerates</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Currency1</th>
+      <th>Currency2</th>
+      <th>Minrate</th>
+      <th>Currentrate</th>
+      <th>Maxrate</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @exchangerates.each do |exchangerate| %>
+      <tr>
+        <td><%= exchangerate.currency1_id %></td>
+        <td><%= exchangerate.currency2_id %></td>
+        <td><%= exchangerate.minrate %></td>
+        <td><%= exchangerate.currentrate %></td>
+        <td><%= exchangerate.maxrate %></td>
+        <td><%= link_to 'Show', exchangerate %></td>
+        <td><%= link_to 'Edit', edit_exchangerate_path(exchangerate) %></td>
+        <td><%= link_to 'Destroy', exchangerate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Exchangerate', new_exchangerate_path %>

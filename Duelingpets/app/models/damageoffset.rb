@@ -1,0 +1,2 @@
+class Damageoffset < ApplicationRecord
+end

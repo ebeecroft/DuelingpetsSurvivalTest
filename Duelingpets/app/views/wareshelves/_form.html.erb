@@ -1,0 +1,32 @@
+<%= form_with(model: wareshelf, local: true) do |form| %>
+  <% if wareshelf.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(wareshelf.errors.count, "error") %> prohibited this wareshelf from being saved:</h2>
+
+      <ul>
+      <% wareshelf.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :waretype %>
+    <%= form.text_field :waretype %>
+  </div>
+
+  <div class="field">
+    <%= form.label :warelimit %>
+    <%= form.number_field :warelimit %>
+  </div>
+
+  <div class="field">
+    <%= form.label :warehouse_id %>
+    <%= form.number_field :warehouse_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

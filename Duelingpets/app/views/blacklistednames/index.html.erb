@@ -1,0 +1,19 @@
+<% provide(:title, "Duelingpets: Blacklisted-Names") %>
+<% provide(:description, "Used to prevent bots from registering for an account.") %>
+<% provide(:keywords, "virtualpet, digitalpets, bot, prevent") %>
+<% provide(:robots, "noindex, nofollow") %>
+<% provide(:h1, "Blacklistedname List") %>
+<div class="formlinks"><%= paginate @blacklistednames %></div>
+<br>
+<% @blacklistednames.each do |blacklistedname| %>
+   <div class="pageformat"><div class="container">Name: <%= blacklistedname.name %></div> <div class="container"><%= button_to 'Edit', edit_blacklistedname_path(blacklistedname), method: :get, class: "button editbutton" %></div> <div class="container"><%= button_to 'Destroy', [blacklistedname], method: :delete, class: "button destroybutton", data: { confirm: 'Are you sure?' } %></div></div>
+   <div class="pageformat">
+      <p>Created on: <%= distance_of_time_in_words_to_now blacklistedname.created_on %> ago on (<%= blacklistedname.created_on.strftime("%B-%d-%Y") %>)</p>
+   </div>
+   <br>
+<% end %>
+<div class="pageformat">
+   <p><%= button_to "New Blacklistedname", new_blacklistedname_path, method: :get, class: "button submitbutton" %></p>
+   <br>
+   <p class="formlinks"><%= link_to 'Back', root_path %></p>
+</div>

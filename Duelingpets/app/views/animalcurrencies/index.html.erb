@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Animalcurrencies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Animaltype</th>
+      <th>Currencylevel</th>
+      <th>Currency</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @animalcurrencies.each do |animalcurrency| %>
+      <tr>
+        <td><%= animalcurrency.animaltype_id %></td>
+        <td><%= animalcurrency.currencylevel_id %></td>
+        <td><%= animalcurrency.currency_id %></td>
+        <td><%= link_to 'Show', animalcurrency %></td>
+        <td><%= link_to 'Edit', edit_animalcurrency_path(animalcurrency) %></td>
+        <td><%= link_to 'Destroy', animalcurrency, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Animalcurrency', new_animalcurrency_path %>

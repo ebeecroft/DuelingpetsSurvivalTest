@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  current_durability: 1
+  initial_durability: 1
+  equip_id: 1
+  item_id: 1
+
+two:
+  current_durability: 1
+  initial_durability: 1
+  equip_id: 1
+  item_id: 1

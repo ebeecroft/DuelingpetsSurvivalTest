@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Elementchart:</strong>
+  <%= @elementmap.elementchart_id %>
+</p>
+
+<p>
+  <strong>Element:</strong>
+  <%= @elementmap.element_id %>
+</p>
+
+<p>
+  <strong>Damageoffset:</strong>
+  <%= @elementmap.damageoffset_id %>
+</p>
+
+<%= link_to 'Edit', edit_elementmap_path(@elementmap) %> |
+<%= link_to 'Back', elementmaps_path %>

@@ -1,0 +1,22 @@
+<% provide(:title, "Duelingpets: Dreyores") %>
+<% provide(:description, "Dreyore allows users to create items and creatures.") %>
+<% provide(:keywords, "virtualpet, digitalpets, dreyore, items, creatures") %>
+<% provide(:robots, "noindex, nofollow") %>
+<% provide(:h1, "Dreyore List") %>
+<div class="formlinks"><%= paginate @dreyores %></div>
+<br>
+<% @dreyores.each do |dreyore| %>
+   <div class="pageformat">
+      <p><div class="container"><%= dreyore.name %></div> <div class="container"><%= button_to 'Edit', edit_dragonhoard_dreyore_path(dreyore.dragonhoard, dreyore), method: :get, class: "button editbutton" %></div></p>
+      <div class="container"><p>Dreyterrium: <%= dreyore.cur %>/<%= dreyore.cap %></p></div> <div class="container"><%= button_to 'Add Ore', dreyores_addore_path(:dreyore_id => dreyore.id), method: :get, class: "button submitbutton" %></div>
+      <p>Change: <%= dreyore.change %></p>
+      <p>Extracted: <%= dreyore.extracted %></p>
+      <p>Price: <%= dreyore.price %> points</p>
+      <p>Dragonhoard: <%= dreyore.dragonhoard_id %></p>
+      <br>
+      <p>Created: <%= distance_of_time_in_words_to_now dreyore.created_on %> ago on (<%= dreyore.created_on.strftime("%B-%d-%Y") %>)</p>
+      <p>Updated: <%= distance_of_time_in_words_to_now dreyore.updated_on %> ago on (<%= dreyore.updated_on.strftime("%B-%d-%Y") %>)</p>
+   </div>
+   <br>
+<% end %>
+<p class="formlinks"><%= link_to 'Back', dragonhoards_path %></p>

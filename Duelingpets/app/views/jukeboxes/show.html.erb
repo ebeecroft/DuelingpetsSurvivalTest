@@ -1,0 +1,16 @@
+<% provide(:title, "Duelingpets: Jukebox #{@jukebox.name}") %>
+<% provide(:description, "Check out #{@jukebox.user}'s amazing music.") %>
+<% provide(:keywords, "virtualpet, digitalpets, music") %>
+<% provide(:robots, "index, follow") %>
+<% provide(:h1, @jukebox.name) %>
+<p id="notice"><%= notice %></p>
+<% @mainsheets.each_with_index do |mainsheet, index| %>
+   <div class="imagecontainer">
+      <p><%= link_to mainsheet.title, jukebox_mainsheet_path(mainsheet.jukebox, mainsheet) %></p>
+      <% if(displayMusic(mainsheet, "show")) %>
+         <p><%= audio_tag(url_for(displayMusic(mainsheet, "show").song), class: "fitaudio", :controls => true) %></p>
+      <% else %>
+         <p>This Mainsheet has no Sounds to hear!</p>
+      <% end %>
+   </div>
+<% end %>

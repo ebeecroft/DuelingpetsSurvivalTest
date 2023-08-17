@@ -1,0 +1,74 @@
+<%= form_with(model: @creaturetype, local: true) do |form| %>
+  <% if @creaturetype.errors.any? %>
+     <div class="alignboxes">
+        <div id="errorexplan">
+           <h2 id="errorheader"><%= pluralize(@creaturetype.errors.count, "error") %> prohibited this creaturetype from being saved:</h2>
+           <ul>
+              <% @creaturetype.errors.full_messages.each do |message| %>
+                 <li class="explantext"><%= message %></li>
+              <% end %>
+           </ul>
+        </div>
+     </div>
+  <% end %>
+  <div class="pageformat">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <br>
+  <div class="pageformat">
+    <%= form.label :basehp %>
+    <%= form.number_field :basehp %>
+  </div>
+  <br>
+  <div class="pageformat">
+    <%= form.label :baseatk %>
+    <%= form.number_field :baseatk %>
+  </div>
+  <br>
+  <div class="pageformat">
+    <%= form.label :basedef %>
+    <%= form.number_field :basedef %>
+  </div>
+  <br>
+  <div class="pageformat">
+    <%= form.label :baseagi %>
+    <%= form.number_field :baseagi %>
+  </div>
+  <br>
+  <div class="pageformat">
+    <%= form.label :basestr %>
+    <%= form.number_field :basestr %>
+  </div>
+  <br>
+  <div class="pageformat">
+    <%= form.label :basehunger %>
+    <%= form.number_field :basehunger %>
+  </div>
+  <br>
+  <div class="pageformat">
+    <%= form.label :basethirst %>
+    <%= form.number_field :basethirst %>
+  </div>
+  <br>
+  <div class="pageformat">
+    <%= form.label :basefun %>
+    <%= form.number_field :basefun %>
+  </div>
+  <br>
+  <div class="pageformat">
+    <%= form.label :basecost %>
+    <%= form.number_field :basecost %>
+  </div>
+  <br>
+  <div class="pageformat">
+    <%= form.label :dreyterriumcost %>
+    <%= form.number_field :dreyterriumcost %>
+  </div>
+  <br>
+  <div class="pageformat">
+    <%= form.submit class: "button submitbutton" %>
+  </div>
+  <br>
+  <p class="formlinks"><%= link_to 'Back', root_path %></p>
+<% end %>

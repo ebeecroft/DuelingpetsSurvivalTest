@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Traittypes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @traittypes.each do |traittype| %>
+      <tr>
+        <td><%= traittype.name %></td>
+        <td><%= link_to 'Show', traittype %></td>
+        <td><%= link_to 'Edit', edit_traittype_path(traittype) %></td>
+        <td><%= link_to 'Destroy', traittype, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Traittype', new_traittype_path %>

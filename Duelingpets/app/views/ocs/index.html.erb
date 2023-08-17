@@ -1,0 +1,28 @@
+<% if optional %>
+   <% provide(:title, "Duelingpets: #{@user.vname}'s OCs") %>
+   <% provide(:description, "Come and check out the newest ocs from the artist #{@user.vname}.") %>
+   <% provide(:keywords, "virtualpet, digitalpets, ocs, artist") %>
+   <% provide(:robots, "index, follow") %>
+   <% provide(:h1, @user.vname +  "'s ocs") %>
+<% else %>
+   <% provide(:title, "Duelingpets: OC") %>
+   <% provide(:description, "Come check out the latest newest ocs from our talented artists.") %>
+   <% provide(:keywords, "virtualpet, digitalpets, ocs, artist") %>
+   <% provide(:robots, "index, follow") %>
+   <% provide(:h1, "OC List") %>
+<% end %>
+<% if(@ocs.count >= 10) %>
+   <div class="formlinks"><%= paginate @ocs %></div>
+   <br>
+<% end %>
+<% @ocs.each do |oc| %>
+   <div class="largeimagecontainer">
+      <p><%= link_to oc.name, user_oc_path(oc.user, oc) %></p>
+      <p><%= image_tag(url_for(oc.thumbnail), class: "fitlargeimages") %></p>
+   </div>
+<% end %>
+<% if optional %>
+   <p class="formlinks"><%= link_to 'Back', user_path(@user) %></p>
+<% else %>
+   <p class="formlinks"><%= link_to 'Back', root_path %></p>
+<% end %>

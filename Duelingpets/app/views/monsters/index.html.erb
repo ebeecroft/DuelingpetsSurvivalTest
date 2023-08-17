@@ -1,0 +1,24 @@
+<% if optional %>
+   <% provide(:title, "Duelingpets: #{@user.vname}'s Monsters") %>
+   <% provide(:description, "Come and check out the newest monsters from the artist #{@user.vname}.") %>
+   <% provide(:keywords, "virtualpet, digitalpets, monsters, artist") %>
+   <% provide(:robots, "index, follow") %>
+   <% provide(:h1, @user.vname +  "'s monsters") %>
+<% else %>
+   <% provide(:title, "Duelingpets: Monster") %>
+   <% provide(:description, "Come check out the latest newest monsters from our talented artists.") %>
+   <% provide(:keywords, "virtualpet, digitalpets, monsters, artist") %>
+   <% provide(:robots, "index, follow") %>
+   <% provide(:h1, "Monster List") %>
+<% end %>
+<% @monsters.each do |monster| %>
+   <div class="largeimagecontainer">
+      <p><%= link_to monster.name, user_monster_path(monster.user, monster) %></p>
+      <p><%= image_tag(url_for(monster.image), class: "fitlargeimages") %></p>
+   </div>
+<% end %>
+<% if optional %>
+   <p class="formlinks"><%= link_to 'Back', user_path(@user) %></p>
+<% else %>
+   <p class="formlinks"><%= link_to 'Back', root_path %></p>
+<% end %>

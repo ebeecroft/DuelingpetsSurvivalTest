@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @animalstat.value %>
+</p>
+
+<p>
+  <strong>Animaltype:</strong>
+  <%= @animalstat.animaltype_id %>
+</p>
+
+<p>
+  <strong>Stat:</strong>
+  <%= @animalstat.stat_id %>
+</p>
+
+<%= link_to 'Edit', edit_animalstat_path(@animalstat) %> |
+<%= link_to 'Back', animalstats_path %>

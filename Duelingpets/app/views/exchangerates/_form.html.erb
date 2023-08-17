@@ -1,0 +1,42 @@
+<%= form_with(model: exchangerate, local: true) do |form| %>
+  <% if exchangerate.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(exchangerate.errors.count, "error") %> prohibited this exchangerate from being saved:</h2>
+
+      <ul>
+      <% exchangerate.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :currency1_id %>
+    <%= form.number_field :currency1_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :currency2_id %>
+    <%= form.number_field :currency2_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :minrate %>
+    <%= form.number_field :minrate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :currentrate %>
+    <%= form.number_field :currentrate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :maxrate %>
+    <%= form.number_field :maxrate %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

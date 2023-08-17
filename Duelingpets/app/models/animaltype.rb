@@ -1,0 +1,2 @@
+class Animaltype < ApplicationRecord
+end

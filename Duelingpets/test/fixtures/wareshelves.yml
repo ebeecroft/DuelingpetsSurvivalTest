@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  waretype: MyString
+  warelimit: 1
+  warehouse_id: 1
+
+two:
+  waretype: MyString
+  warelimit: 1
+  warehouse_id: 1

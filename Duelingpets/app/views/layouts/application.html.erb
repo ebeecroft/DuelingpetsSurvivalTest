@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title><%= yield(:title) %></title>
+      <%= csrf_meta_tags %>
+      <%= csp_meta_tag %>
+      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+      <%= favicon_link_tag displayType("Favicon") %>
+      <link href="https://vjs.zencdn.net/8.3.0/video-js.css" rel="stylesheet" />
+      <script src="https://vjs.zencdn.net/8.3.0/video.min.js"></script>
+
+
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta name="description" content="<%= yield(:description) %>" />
+      <meta name="keywords" content="<%= yield(:keywords) %>">
+      <meta name="robots" content="<%= yield(:robots) %>">
+      <!---<meta http-equiv="Cache-Control" content="max-age=200" />--->
+      <link rel="canonical" href="http://www.duelingpets.net" />
+      <link rel="alternate" href="http://duelingpets.net" />
+   </head>
+   <body class="webcolor">
+      <%= render 'layouts/webstyle.css.erb' %>
+      <div class="fullscreen">
+         <div class="banner"><%= link_to image_tag(displayType("Banner")), root_path %></div>
+         <div class="sidebar">
+            <h1>Features</h1>
+            <p class="sidebarlinks"><%= link_to "Battle", battle_path %></p>
+            <p class="sidebarlinks"><%= link_to "Studio", studio_path %></p>
+            <p class="sidebarlinks"><%= link_to "News", blogs_path %></p>
+            <p class="sidebarlinks"><%= link_to "Hoard", dragonhoards_path %></p>
+            <p class="sidebarlinks"><%= link_to "Warehouse", warehouses_path %></p>
+            <br>
+            <p><%= button_to "Register Now!", register_path, method: :get, class: "buttonadjust" %></p>
+            <br>
+            <p>Active: <%= activity("Active") %> Online: <%= activity("Online") %> Inact: <%= activity("Inactive") %> Signups: <%= activity("Register") %></p>
+         </div>
+         <div class="profile2">
+            <%= render "layouts/profilelinks" %>
+         </div>
+         <div class="mainview2">
+            <h1><%= yield(:h1) %></h1>
+            <br>
+            <%= yield %>
+            <br>
+            <footer>Welcome to the end page</footer>
+         </div>
+      </div>
+   </body>
+</html>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Currency1:</strong>
+  <%= @exchangerate.currency1_id %>
+</p>
+
+<p>
+  <strong>Currency2:</strong>
+  <%= @exchangerate.currency2_id %>
+</p>
+
+<p>
+  <strong>Minrate:</strong>
+  <%= @exchangerate.minrate %>
+</p>
+
+<p>
+  <strong>Currentrate:</strong>
+  <%= @exchangerate.currentrate %>
+</p>
+
+<p>
+  <strong>Maxrate:</strong>
+  <%= @exchangerate.maxrate %>
+</p>
+
+<%= link_to 'Edit', edit_exchangerate_path(@exchangerate) %> |
+<%= link_to 'Back', exchangerates_path %>

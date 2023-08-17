@@ -1,0 +1,2 @@
+class Wareobject < ApplicationRecord
+end

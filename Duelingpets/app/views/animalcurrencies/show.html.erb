@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Animaltype:</strong>
+  <%= @animalcurrency.animaltype_id %>
+</p>
+
+<p>
+  <strong>Currencylevel:</strong>
+  <%= @animalcurrency.currencylevel_id %>
+</p>
+
+<p>
+  <strong>Currency:</strong>
+  <%= @animalcurrency.currency_id %>
+</p>
+
+<%= link_to 'Edit', edit_animalcurrency_path(@animalcurrency) %> |
+<%= link_to 'Back', animalcurrencies_path %>

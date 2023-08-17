@@ -1,0 +1,16 @@
+<% provide(:title, "Duelingpets: Subfolder #{@subfolder.title}") %>
+<% provide(:description, "Check out #{@subfolder.user}'s amazing artwork.") %>
+<% provide(:keywords, "virtualpet, digitalpets, artwork") %>
+<% provide(:robots, "index, follow") %>
+<% provide(:h1, @subfolder.title) %>
+<p id="notice"><%= notice %></p>
+<% @arts.each_with_index do |art, index| %>
+   <div class="largeimagecontainer">
+      <p><%= link_to art.title, subfolder_art_path(art.subfolder, art) %></p>
+      <% if(displayImage(art, "art")) %>
+         <p><%= image_tag(url_for(displayImage(art, "art").image), class: "fitlargeimages") %></p>
+      <% else %>
+         <p>There are no Arts to display!</p>
+      <% end %>
+   </div>
+<% end %>

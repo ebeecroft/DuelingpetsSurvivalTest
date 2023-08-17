@@ -1,0 +1,24 @@
+<% if optional %>
+   <% provide(:title, "Duelingpets: #{@user.vname}'s Items") %>
+   <% provide(:description, "Come and check out the newest items from the artist #{@user.vname}.") %>
+   <% provide(:keywords, "virtualpet, digitalpets, items, artist") %>
+   <% provide(:robots, "index, follow") %>
+   <% provide(:h1, @user.vname +  "'s items") %>
+<% else %>
+   <% provide(:title, "Duelingpets: Item") %>
+   <% provide(:description, "Come check out the latest newest items from our talented artists.") %>
+   <% provide(:keywords, "virtualpet, digitalpets, items, artist") %>
+   <% provide(:robots, "index, follow") %>
+   <% provide(:h1, "Item List") %>
+<% end %>
+<% @items.each do |item| %>
+   <div class="smallimagecontainer">
+      <p><%= link_to item.name, user_item_path(item.user, item) %></p>
+      <p><%= image_tag(url_for(item.image), class: "fitsmallimages") %></p>
+   </div>
+<% end %>
+<% if optional %>
+   <p class="formlinks"><%= link_to 'Back', user_path(@user) %></p>
+<% else %>
+   <p class="formlinks"><%= link_to 'Back', root_path %></p>
+<% end %>

@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Elementmaps</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Elementchart</th>
+      <th>Element</th>
+      <th>Damageoffset</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @elementmaps.each do |elementmap| %>
+      <tr>
+        <td><%= elementmap.elementchart_id %></td>
+        <td><%= elementmap.element_id %></td>
+        <td><%= elementmap.damageoffset_id %></td>
+        <td><%= link_to 'Show', elementmap %></td>
+        <td><%= link_to 'Edit', edit_elementmap_path(elementmap) %></td>
+        <td><%= link_to 'Destroy', elementmap, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Elementmap', new_elementmap_path %>

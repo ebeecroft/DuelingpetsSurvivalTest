@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Currencylevels</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @currencylevels.each do |currencylevel| %>
+      <tr>
+        <td><%= currencylevel.name %></td>
+        <td><%= link_to 'Show', currencylevel %></td>
+        <td><%= link_to 'Edit', edit_currencylevel_path(currencylevel) %></td>
+        <td><%= link_to 'Destroy', currencylevel, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Currencylevel', new_currencylevel_path %>

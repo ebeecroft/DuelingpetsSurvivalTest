@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Entity:</strong>
+  <%= @traitmap.entity_id %>
+</p>
+
+<p>
+  <strong>Entitytype:</strong>
+  <%= @traitmap.entitytype_id %>
+</p>
+
+<p>
+  <strong>Traittype:</strong>
+  <%= @traitmap.traittype_id %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @traitmap.amount %>
+</p>
+
+<%= link_to 'Edit', edit_traitmap_path(@traitmap) %> |
+<%= link_to 'Back', traitmaps_path %>

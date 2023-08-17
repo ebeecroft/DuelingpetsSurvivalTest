@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Waretype:</strong>
+  <%= @wareshelf.waretype %>
+</p>
+
+<p>
+  <strong>Warelimit:</strong>
+  <%= @wareshelf.warelimit %>
+</p>
+
+<p>
+  <strong>Warehouse:</strong>
+  <%= @wareshelf.warehouse_id %>
+</p>
+
+<%= link_to 'Edit', edit_wareshelf_path(@wareshelf) %> |
+<%= link_to 'Back', wareshelves_path %>

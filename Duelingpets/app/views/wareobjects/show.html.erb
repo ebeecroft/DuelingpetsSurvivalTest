@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @wareobject.type %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @wareobject.price %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @wareobject.quantity %>
+</p>
+
+<p>
+  <strong>Wareshelf:</strong>
+  <%= @wareobject.wareshelf_id %>
+</p>
+
+<p>
+  <strong>Wareobject:</strong>
+  <%= @wareobject.wareobject_id %>
+</p>
+
+<%= link_to 'Edit', edit_wareobject_path(@wareobject) %> |
+<%= link_to 'Back', wareobjects_path %>

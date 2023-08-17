@@ -1,0 +1,17 @@
+<% provide(:title, "Duelingpets: Itemactions") %>
+<% provide(:description, "Provides users the ability to choose what they want to do with the item.") %>
+<% provide(:keywords, "virtualpet, digitalpets, item") %>
+<% provide(:robots, "noindex, nofollow") %>
+<% provide(:h1, "Itemaction List") %>
+<div class="formlinks"><%= paginate @itemactions %></div>
+<br>
+<% @itemactions.each do |itemaction| %>
+   <div class="pageformat">
+      <div class="container"><%= itemaction.name %></div> <div class="container"><%= button_to 'Edit', edit_itemaction_path(itemaction), method: :get, class: "button editbutton" %></div> <div class="container"><%= button_to 'Destroy', user, method: :delete, class: "button destroybutton", data: { confirm: 'Are you sure?' } %></div>
+      <p>Created: <%= distance_of_time_in_words_to_now itemaction.created_on %> ago on (<%= itemaction.created_on.strftime("%B-%d-%Y") %>)</p>
+   </div>
+   <br>
+<% end %>
+<p class="pageformat"><%= button_to "New Itemaction", new_itemaction_path, method: :get, class: "button submitbutton" %></p>
+<br>
+<p class="formlinks"><%= link_to 'Back', root_path %></p>

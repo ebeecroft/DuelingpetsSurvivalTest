@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  currency1_id: 1
+  currency2_id: 1
+  minrate: 1
+  currentrate: 1
+  maxrate: 1
+
+two:
+  currency1_id: 1
+  currency2_id: 1
+  minrate: 1
+  currentrate: 1
+  maxrate: 1

@@ -1,0 +1,18 @@
+<% provide(:title, "Duelingpets: Channel #{@channel.name}") %>
+<% provide(:description, "Check out #{@channel.user}'s amazing channels.") %>
+<% provide(:keywords, "virtualpet, digitalpets, channel") %>
+<% provide(:robots, "index, follow") %>
+<% provide(:h1, @channel.name) %>
+<% if notice.nil? %>
+   <p id="notice"><%= notice %></p>
+<% end %>
+<% @mainplaylists.each_with_index do |mainplaylist, index| %>
+   <div class="videocontainer">
+      <p><%= link_to mainplaylist.title, channel_mainplaylist_path(mainplaylist.channel, mainplaylist) %></p>
+      <% if(displayVideo(mainplaylist, "show")) %>
+         <p><%= video_tag(url_for(displayVideo(mainplaylist, "show").clip), poster: "#{url_for(displayVideo(mainplaylist, "show").thumbnail)}", class: "fitvideo", :controls => true) %></p>
+      <% else %>
+         <p>This Mainplaylist has no Movies to display!</p>
+      <% end %>
+   </div>
+<% end %>

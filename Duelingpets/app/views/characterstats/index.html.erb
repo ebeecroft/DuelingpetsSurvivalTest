@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Characterstats</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Value</th>
+      <th>Character</th>
+      <th>Stat</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @characterstats.each do |characterstat| %>
+      <tr>
+        <td><%= characterstat.value %></td>
+        <td><%= characterstat.character_id %></td>
+        <td><%= characterstat.stat_id %></td>
+        <td><%= link_to 'Show', characterstat %></td>
+        <td><%= link_to 'Edit', edit_characterstat_path(characterstat) %></td>
+        <td><%= link_to 'Destroy', characterstat, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Characterstat', new_characterstat_path %>

@@ -1,0 +1,13 @@
+<!--Alert section-->
+<% if current_user %>
+   <p><%= userprofile("User") %></p>
+   <p><%= getClock %></p>
+   <!--<p>Pouch: <%= current_user.pouch.amount %> points, Dreyore: <%= current_user.pouch.dreyoreamount %>, Emeralds: <%= current_user.pouch.emeraldamount %></p>-->
+   <!--Notifications in different color then Pagealerts-->
+   <p>Notifications: <%= link_to getNotifications("All"), notification_path %>, Alerts: <%= link_to alert("All"), pagealerts_path %></p>
+   <div class="sidepattern-main"><%= button_to "Active Users", activeusers_path, method: :get, class: "button submitbutton" %></div><div class="sidepattern-main"><%= button_to "Open Inventory", user_inventory_path(current_user, current_user.inventory), method: :get, class: "button submitbutton" %></div>
+<% else %>
+   <p><%= userprofile("Guest") %></p>
+   <p><%= getClock %></p>
+<% end %>
+<!--End of Alert section-->

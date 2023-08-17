@@ -1,0 +1,49 @@
+<%= form_with(model: [@book, @chapter], local: true) do |form| %>
+  <% if @chapter.errors.any? %>
+     <div class="alignboxes">
+        <div id="errorexplan">
+           <h2 id="errorheader"><%= pluralize(@chapter.errors.count, "error") %> prohibited this chapter from being saved:</h2>
+           <ul>
+              <% @chapter.errors.full_messages.each do |message| %>
+                 <li class="explantext"><%= message %></li>
+              <% end %>
+           </ul>
+        </div>
+     </div>
+  <% end %>
+  <div class="pageformat">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+  <br>
+  <div class="pageformat">
+    <%= form.label :story %>
+    <%= form.file_field :story %>
+  </div>
+  <br>
+  <div class="pageformat">
+    <%#= form.label :story_file %>
+    <%#= form.file_field :story_file %>
+  </div>
+  <br>
+  <div class="pageformat">
+    <%#= form.label :bookcover %>
+    <%#= form.file_field :bookcover %>
+  </div>
+  <br>
+  <div class="pageformat">
+    <%#= form.label :narrator %>
+    <%#= form.file_field :narrator %>
+  </div>
+  <br>
+  <div class="pageformat">
+    <%= form.label :bookgroup_id, "Select Group" %>
+    <%= form.collection_select(:bookgroup_id, @group, :id, :name) %>
+  </div>
+  <br>
+  <div class="pageformat">
+    <%= form.submit class: "button submitbutton" %>
+  </div>
+  <br>
+  <p class="formlinks"><%= link_to 'Back', bookworld_book_path(@book.bookworld, @book) %></p>
+<% end %>

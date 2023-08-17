@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Tagables</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Table</th>
+      <th>Table type</th>
+      <th>Tag</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tagables.each do |tagable| %>
+      <tr>
+        <td><%= tagable.table_id %></td>
+        <td><%= tagable.table_type %></td>
+        <td><%= tagable.tag_id %></td>
+        <td><%= link_to 'Show', tagable %></td>
+        <td><%= link_to 'Edit', edit_tagable_path(tagable) %></td>
+        <td><%= link_to 'Destroy', tagable, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tagable', new_tagable_path %>

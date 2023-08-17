@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Traitmaps</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Entity</th>
+      <th>Entitytype</th>
+      <th>Traittype</th>
+      <th>Amount</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @traitmaps.each do |traitmap| %>
+      <tr>
+        <td><%= traitmap.entity_id %></td>
+        <td><%= traitmap.entitytype_id %></td>
+        <td><%= traitmap.traittype_id %></td>
+        <td><%= traitmap.amount %></td>
+        <td><%= link_to 'Show', traitmap %></td>
+        <td><%= link_to 'Edit', edit_traitmap_path(traitmap) %></td>
+        <td><%= link_to 'Destroy', traitmap, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Traitmap', new_traitmap_path %>

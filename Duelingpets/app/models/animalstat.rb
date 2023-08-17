@@ -1,0 +1,2 @@
+class Animalstat < ApplicationRecord
+end

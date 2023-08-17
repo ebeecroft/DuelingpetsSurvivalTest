@@ -1,0 +1,28 @@
+<% if optional %>
+   <% provide(:title, "Duelingpets: #{@user.vname}'s Elements") %>
+   <% provide(:description, "Come and check out the newest elements from the designer #{@user.vname}.") %>
+   <% provide(:keywords, "virtualpet, digitalpets, elements, designer") %>
+   <% provide(:robots, "index, follow") %>
+   <% provide(:h1, @user.vname +  "'s elements") %>
+<% else %>
+   <% provide(:title, "Duelingpets: Element") %>
+   <% provide(:description, "Come check out the latest newest elements from our talented designers.") %>
+   <% provide(:keywords, "virtualpet, digitalpets, elements, designer") %>
+   <% provide(:robots, "index, follow") %>
+   <% provide(:h1, "Element List") %>
+<% end %>
+<% if(@elements.count >= 10) %>
+   <div class="formlinks"><%= paginate @elements %></div>
+   <br>
+<% end %>
+<% @elements.each do |element| %>
+   <div class="smallimagecontainer">
+      <p><%= link_to element.name, user_element_path(element.user, element) %></p>
+      <p><%= image_tag(url_for(element.image), class: "fitsmallimages") %></p>
+   </div>
+<% end %>
+<% if optional %>
+   <p class="formlinks"><%= link_to 'Back', user_path(@user) %></p>
+<% else %>
+   <p class="formlinks"><%= link_to 'Back', root_path %></p>
+<% end %>

@@ -1,0 +1,2 @@
+class Wareshelf < ApplicationRecord
+end

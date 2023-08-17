@@ -1,0 +1,11 @@
+<% provide(:title, "Duelingpets: Register") %>
+<% provide(:description, "After you finish this step we will review your account.") %>
+<% provide(:keywords, "virtualpet, digitalpets, register") %>
+<% provide(:robots, "index, follow") %>
+<% provide(:h1, "New Registration") %>
+<div class="pageformat">
+   <p><%= image_tag(@artpage.art_url(:thumb)) %></p>
+   <p class="textindent"><%= textFormater("Multi", @artpage.message, "All").html_safe %></p>
+   <br>
+</div>
+<%= render 'form' %>

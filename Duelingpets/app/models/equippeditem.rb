@@ -1,0 +1,2 @@
+class Equippeditem < ApplicationRecord
+end

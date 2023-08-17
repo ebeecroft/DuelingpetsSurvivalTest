@@ -1,0 +1,32 @@
+<% if optional %>
+   <% provide(:title, "Duelingpets: #{@user.vname}'s Galleries") %>
+   <% provide(:description, "Come and check out the newest galleries from the artist #{@user.vname}.") %>
+   <% provide(:keywords, "virtualpet, digitalpets, galleries, artist") %>
+   <% provide(:robots, "index, follow") %>
+   <% provide(:h1, @user.vname +  "'s galleries") %>
+<% else %>
+   <% provide(:title, "Duelingpets: Gallery") %>
+   <% provide(:description, "Come check out the latest newest galleries from our talented artists.") %>
+   <% provide(:keywords, "virtualpet, digitalpets, galleries, artist") %>
+   <% provide(:robots, "index, follow") %>
+   <% provide(:h1, "Gallery List") %>
+<% end %>
+<% if(@galleries.count >= 10) %>
+   <div class="formlinks"><%= paginate @galleries %></div>
+   <br>
+<% end %>
+<% @galleries.each do |gallery| %>
+   <div class="largeimagecontainer">
+      <p><%= link_to gallery.name, user_gallery_path(gallery.user, gallery) %></p>
+      <% if(displayImage(gallery, "index")) %>
+         <p><%= image_tag(url_for(displayImage(gallery, "index").image), class: "fitlargeimages") %></p>
+      <% else %>
+         <p>This Gallery has no Arts to display!</p>
+      <% end %>
+   </div>
+<% end %>
+<% if optional %>
+   <p class="formlinks"><%= link_to 'Back', user_path(@user) %></p>
+<% else %>
+   <p class="formlinks"><%= link_to 'Back', root_path %></p>
+<% end %>

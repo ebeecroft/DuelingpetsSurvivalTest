@@ -1,0 +1,7 @@
+<% provide(:title, "Duelingpets: OC #{@oc.name}") %>
+<% provide(:description, "Check out #{@oc.user}'s amazing ocs.") %>
+<% provide(:keywords, "virtualpet, digitalpets, ocs") %>
+<% provide(:robots, "index, follow") %>
+<% provide(:h1, @oc.name) %>
+<p id="notice"><%= notice %></p>
+<p class="fitlargeimages"><%= image_tag(url_for(@oc.thumbnail), class: "fitlargeimages") %></p>

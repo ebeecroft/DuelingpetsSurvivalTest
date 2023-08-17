@@ -1,0 +1,2 @@
+module WareshelvesHelper
+end

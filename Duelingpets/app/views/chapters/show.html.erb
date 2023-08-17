@@ -1,0 +1,11 @@
+<% provide(:title, "Duelingpets: Chapter #{@chapter.title}") %>
+<% provide(:description, "Check out #{@chapter.user}'s amazing stories.") %>
+<% provide(:keywords, "virtualpet, digitalpets, stories") %>
+<% provide(:robots, "index, follow") %>
+<% provide(:h1, @chapter.title) %>
+<p id="notice"><%= notice %></p>
+<p><%#= @chapter.story_file %></p>
+<iframe src='https://view.officeapps.live.com/op/embed.aspx?src=<%= url_for(@chapter.story) %>' width='100%' height='650px' frameborder='0'></iframe>
+<p><%#= image_tag(url_for(@chapter.bookcover)) %></p>
+<p><%#= audio_tag(url_for(@chapter.narrator), controls: '') %></p>
+<p class="formlinks"><%= link_to "Back", bookworld_book_path(@chapter.book.bookworld, @chapter.book) %></p>

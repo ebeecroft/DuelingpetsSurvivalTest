@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @trait.name %>
+</p>
+
+<p>
+  <strong>Level:</strong>
+  <%= @trait.level %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @trait.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_trait_path(@trait) %> |
+<%= link_to 'Back', traits_path %>

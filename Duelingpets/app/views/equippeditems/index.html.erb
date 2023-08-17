@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Equippeditems</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Current durability</th>
+      <th>Initial durability</th>
+      <th>Equip</th>
+      <th>Item</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @equippeditems.each do |equippeditem| %>
+      <tr>
+        <td><%= equippeditem.current_durability %></td>
+        <td><%= equippeditem.initial_durability %></td>
+        <td><%= equippeditem.equip_id %></td>
+        <td><%= equippeditem.item_id %></td>
+        <td><%= link_to 'Show', equippeditem %></td>
+        <td><%= link_to 'Edit', edit_equippeditem_path(equippeditem) %></td>
+        <td><%= link_to 'Destroy', equippeditem, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Equippeditem', new_equippeditem_path %>

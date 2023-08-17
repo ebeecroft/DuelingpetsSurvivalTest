@@ -1,0 +1,14 @@
+<% provide(:title, "Duelingpets: Baseincs") %>
+<% provide(:description, "The default increments to manage the Duelingpets economy.") %>
+<% provide(:keywords, "virtualpet, digitalpets, increments, economy") %>
+<% provide(:robots, "noindex, nofollow") %>
+<% provide(:h1, "Baseinc List") %>
+<% @baseincs.each do |baseinc| %>
+   <div class="pageformat">
+      <p>Name: <%= baseinc.name %></p>
+      <p>Amount: <%= baseinc.amount %></p>
+      <p>Created: <%= distance_of_time_in_words_to_now baseinc.created_on %> ago on (<%= baseinc.created_on.strftime("%B-%d-%Y") %>)</p>
+   </div>
+   <br>
+<% end %>
+<p class="formlinks"><%= link_to 'Back', root_path %></p>

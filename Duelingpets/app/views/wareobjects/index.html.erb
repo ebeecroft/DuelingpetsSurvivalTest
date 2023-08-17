@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Wareobjects</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Wareshelf</th>
+      <th>Wareobject</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @wareobjects.each do |wareobject| %>
+      <tr>
+        <td><%= wareobject.type %></td>
+        <td><%= wareobject.price %></td>
+        <td><%= wareobject.quantity %></td>
+        <td><%= wareobject.wareshelf_id %></td>
+        <td><%= wareobject.wareobject_id %></td>
+        <td><%= link_to 'Show', wareobject %></td>
+        <td><%= link_to 'Edit', edit_wareobject_path(wareobject) %></td>
+        <td><%= link_to 'Destroy', wareobject, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Wareobject', new_wareobject_path %>

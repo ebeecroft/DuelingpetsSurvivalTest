@@ -1,0 +1,2 @@
+module WareobjectsHelper
+end

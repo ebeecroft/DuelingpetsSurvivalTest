@@ -1,0 +1,7 @@
+<% provide(:title, "Duelingpets: Movie #{@movie.title}") %>
+<% provide(:description, "Check out #{@movie.user}'s amazing movies.") %>
+<% provide(:keywords, "virtualpet, digitalpets, movies") %>
+<% provide(:robots, "index, follow") %>
+<% provide(:h1, @movie.title) %>
+<p id="notice"><%= notice %></p>
+<p class="fitvideo"><%= video_tag(url_for(@movie.clip), poster: "#{url_for(@movie.thumbnail)}", class: "fitvideo", :controls => true) %></p>

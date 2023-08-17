@@ -1,0 +1,22 @@
+<% provide(:title, "Duelingpets: Fieldcosts") %>
+<% provide(:description, "Displays the current price of the website features for the central bank.") %>
+<% provide(:keywords, "virtualpet, digitalpets, price") %>
+<% provide(:robots, "noindex, nofollow") %>
+<% provide(:h1, "Fieldcost List") %>
+<div class="formlinks"><%= paginate @fieldcosts %></div>
+<br>
+<% @fieldcosts.each do |fieldcost| %>
+   <div class="pageformat">
+      <p><div class="container"><%= fieldcost.name %></div> <div class="container"><%= button_to 'Edit', edit_dragonhoard_fieldcost_path(fieldcost.dragonhoard, fieldcost), method: :get, class: "button editbutton" %></div></p>
+      <div class="container">Amount: <%= fieldcost.amount %></div> <div class="container"><%= button_to "Increase", fieldcosts_inc_path(fieldcost), method: :post, class: "button editbutton" %></div> <div class="container"><%= button_to "Decrease", fieldcosts_dec_path(fieldcost), method: :post, class: "button destroybutton" %></div>
+      <br>
+      <p>Econtype: <%= fieldcost.econtype %></p>
+      <p>Baseinc: <%= fieldcost.baseinc.name %></p>
+      <p>Dragonhoard: <%= fieldcost.dragonhoard_id %></p>
+      <br>
+      <p>Created: <%= distance_of_time_in_words_to_now fieldcost.created_on %> ago on (<%= fieldcost.created_on.strftime("%B-%d-%Y") %>)</p>
+      <p>Updated: <%= distance_of_time_in_words_to_now fieldcost.updated_on %> ago on (<%= fieldcost.updated_on.strftime("%B-%d-%Y") %>)</p>
+   </div>
+   <br>
+<% end %>
+<p class="formlinks"><%= link_to 'Back', dragonhoards_path %></p>

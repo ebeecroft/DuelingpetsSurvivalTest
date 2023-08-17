@@ -1,0 +1,2 @@
+module SkilltypesHelper
+end
